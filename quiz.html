@@ -1,32 +1,268 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Astecas e Maias</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quiz Incas, Maias e Astecas</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #4caf50, #ffffff, #d32f2f);
+  }
+
+  .container {
+    background: #fff;
+    max-width: 700px;
+    width: 90%;
+    margin: 40px 0;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    padding: 25px 35px 40px 35px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #d32f2f;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    color: #4caf50;
+    margin-top: 40px;
+    margin-bottom: 15px;
+  }
+
+  .question {
+    margin-bottom: 25px;
+  }
+
+  .question h3 {
+    margin-bottom: 12px;
+  }
+
+  .answers {
+    list-style: none;
+    padding: 0;
+  }
+
+  .answers li {
+    margin-bottom: 10px;
+  }
+
+  label {
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  input[type="radio"] {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  button {
+    background-color: #d32f2f;
+    border: none;
+    padding: 12px 25px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 25px auto 0 auto;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #b02626;
+  }
+
+  .result {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #4caf50;
+  }
+
+  .curiosities {
+    background: #e8f5e9;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-top: 30px;
+    color: #2e7d32;
+    font-weight: 600;
+  }
+
+  .tribe-images {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 35px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .tribe {
+    flex: 1 1 200px;
+    text-align: center;
+  }
+
+  .tribe img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+
+  .tribe p {
+    margin-top: 8px;
+    font-weight: 600;
+    color: #d32f2f;
+  }
+
+  @media (max-width: 600px) {
+    .tribe-images {
+      flex-direction: column;
+    }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-       <h1>Quiz Interativo sobre Astecas e Maias</h1>
-     <section class="curiosidades">
-        <h2>Curiosidades</h2>
-        <ul>
-            <li>A capital Asteca, Tenochtitlán, foi construída em uma ilha no lago Texcoco.</li>
-            <li>Os maias eram exímios astrônomos e desenvolveram um calendário muito preciso.</li>
-            <li>Ambas as civilizações usavam pirâmides para cerimônias religiosas e sacrifícios.</li>
-            <li>Os astecas tinham um sistema de escrita com símbolos e desenhos.</li>
-            <li>Os maias desenvolveram complexas cidades-estados como Palenque e Uxmal.</li>
+  <div class="container">
+    <h1>Quiz: Incas, Maias e Astecas</h1>
+    <form id="quiz-form">
+      <div class="question">
+        <h3>1. Onde ficava o império Inca?</h3>
+        <ul class="answers">
+          <li><label><input type="radio" name="q1" value="a" /> México</label></li>
+          <li><label><input type="radio" name="q1" value="b" /> Peru</label></li>
+          <li><label><input type="radio" name="q1" value="c" /> Guatemala</label></li>
+          <li><label><input type="radio" name="q1" value="d" /> Brasil</label></li>
         </ul>
-     </section>
-     <section class="quiz-section">
-        <h2>Responda os Quiziz abaixo</h2>
-        <div id="question-container"></div>
-        <div>
-            <button id="submit-btn">Enviar Resposta</button>
-            <div class="feedback" id="feedback"></div>
-            <div class="score" id="score"></div>
-        </div>
-     </section>
+      </div>
+
+      <div class="question">
+        <h3>2. Qual civilização criou o calendário solar mais preciso da antiguidade?</h3>
+        <ul class="answers">
+          <li><label><input type="radio" name="q2" value="a" /> Astecas</label></li>
+          <li><label><input type="radio" name="q2" value="b" /> Incas</label></li>
+          <li><label><input type="radio" name="q2" value="c" /> Maias</label></li>
+          <li><label><input type="radio" name="q2" value="d" /> Olmecas</label></li>
+        </ul>
+      </div>
+
+      <div class="question">
+        <h3>3. Qual era a capital do império Asteca?</h3>
+        <ul class="answers">
+          <li><label><input type="radio" name="q3" value="a" /> Tenochtitlán</label></li>
+          <li><label><input type="radio" name="q3" value="b" /> Machu Picchu</label></li>
+          <li><label><input type="radio" name="q3" value="c" /> Chichén Itzá</label></li>
+          <li><label><input type="radio" name="q3" value="d" /> Cuzco</label></li>
+        </ul>
+      </div>
+
+      <div class="question">
+        <h3>4. Qual dessas civilizações construía grandes pirâmides de pedra?</h3>
+        <ul class="answers">
+          <li><label><input type="radio" name="q4" value="a" /> Maias e Astecas</label></li>
+          <li><label><input type="radio" name="q4" value="b" /> Incas e Maias</label></li>
+          <li><label><input type="radio" name="q4" value="c" /> Incas e Astecas</label></li>
+          <li><label><input type="radio" name="q4" value="d" /> Todas</label></li>
+        </ul>
+      </div>
+
+      <div class="question">
+        <h3>5. Qual civilização usava um sistema de cordas chamado <em>quipu</em> para registrar informações?</h3>
+        <ul class="answers">
+          <li><label><input type="radio" name="q5" value="a" /> Astecas</label></li>
+          <li><label><input type="radio" name="q5" value="b" /> Incas</label></li>
+          <li><label><input type="radio" name="q5" value="c" /> Maias</label></li>
+          <li><label><input type="radio" name="q5" value="d" /> Toltecas</label></li>
+        </ul>
+      </div>
+
+      <div class="question">
+        <h3>6. Qual civilização criou a bebida <strong>chocolate</strong> que hoje é tão famosa?</h3>
+        <ul class="answers">
+          <li><label><input type="radio" name="q6" value="a" /> Incas</label></li>
+          <li><label><input type="radio" name="q6" value="b" /> Maias</label></li>
+          <li><label><input type="radio" name="q6" value="c" /> Astecas</label></li>
+          <li><label><input type="radio" name="q6" value="d" /> Todas as anteriores</label></li>
+        </ul>
+      </div>
+
+      <button type="submit">Enviar Respostas</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <div class="curiosities">
+      <h2>Curiosidades</h2>
+      <ul>
+        <li><strong>Incas:</strong> Construíram Machu Picchu, uma cidade inteira nas montanhas sem usar argamassa nas pedras.</li>
+        <li><strong>Maias:</strong> Desenvolveram um sistema avançado de escrita hieroglífica e eram grandes astrônomos.</li>
+        <li><strong>Astecas:</strong> Sua capital Tenochtitlán foi construída sobre um lago, com canais e pontes.</li>
+      </ul>
     </div>
+
+    <div class="tribe-images">
+      <div class="tribe">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Machu_Picchu%2C_Peru.jpg" alt="Machu Picchu - Incas" />
+        <p>Incas - Machu Picchu</p>
+      </div>
+      <div class="tribe">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/El_Castillo_Con_Cielo.jpg" alt="Chichén Itzá - Maias" />
+        <p>Maias - Chichén Itzá</p>
+      </div>
+      <div class="tribe">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Templo_Mayor_01.jpg" alt="Templo Mayor - Astecas" />
+        <p>Astecas - Templo Mayor</p>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const quizForm = document.getElementById('quiz-form');
+  const resultDiv = document.getElementById('result');
+
+  const answers = {
+    q1: 'b',
+    q2: 'c',
+    q3: 'a',
+    q4: 'a',
+    q5: 'b',
+    q6: 'c'
+  };
+
+  quizForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let score = 0;
+    let total = Object.keys(answers).length;
+
+    // Check each answer
+    for (const [key, value] of Object.entries(answers)) {
+      const selected = quizForm.elements[key].value;
+      if (selected === value) {
+        score++;
+      }
+    }
+
+    // Show result
+    resultDiv.textContent = `Você acertou ${score} de ${total} perguntas!`;
+
+    // Scroll to result
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
 </body>
 </html>
